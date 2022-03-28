@@ -41,16 +41,25 @@ while True: #Main loop
         print("How many iterations should we run?")
         iterationCount = int(input())
         if iterationCount <= 0:
+            TotalIteration = (oneCount+twoCount+threeCount+fourCount+fiveCount+sixCount+sevenCount+eightCount\
+                +nineCount+tenCount+elevenCount+twelveCount+thirteenCount+fourteenCount+fifteenCount+sixteenCount\
+                    +seventeenCount+eighteenCount+nineteenCount+twentyCount)
             print("Cannot run 0 or less iterations, generating chart.")
-            Number = ['1','2','3','4','5','6','7','8','9','10','11','12','13','14','15','16','17','18','19','20']
-            Totals = [oneCount,twoCount,threeCount,fourCount,fiveCount,sixCount,sevenCount,eightCount,nineCount,tenCount,elevenCount,twelveCount,thirteenCount,fourteenCount,fifteenCount,sixteenCount,seventeenCount,eighteenCount,nineteenCount,twentyCount]
+            print("Total Iterations Ran: " + str(TotalIteration))
+            Number = ['1','2','3','4','5','6','7','8','9','10','11','12','13','14','15','16','17','18','19','20']            
+            Totals = [float(oneCount/TotalIteration),float(twoCount/TotalIteration),float(threeCount/TotalIteration),float(fourCount/TotalIteration),\
+                float(fiveCount/TotalIteration),float(sixCount/TotalIteration),float(sevenCount/TotalIteration),float(eightCount/TotalIteration),\
+                    float(nineCount/TotalIteration),float(tenCount/TotalIteration),float(elevenCount/TotalIteration),float(twelveCount/TotalIteration),\
+                        float(thirteenCount/TotalIteration),float(fourteenCount/TotalIteration),float(fifteenCount/TotalIteration),\
+                            float(sixteenCount/TotalIteration),float(seventeenCount/TotalIteration),float(eighteenCount/TotalIteration),\
+                                float(nineteenCount/TotalIteration),float(twentyCount/TotalIteration)]
             plot.bar(Number,Totals)
             plot.title('Number Spread for Generated Numbers')
             plot.xlabel('Numbers')
             plot.ylabel('Totals')
             plot.show()
-        elif iterationCount >= 0:
-            while iterationCount >= 0:
+        elif iterationCount > 0:
+            while iterationCount > 0:
                 randomNumber = random.randint(1,20)
                 iterationCount = iterationCount - 1
                 if randomNumber == 1:
