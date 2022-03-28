@@ -1,4 +1,6 @@
 import random,sys
+from tkinter import Y
+import matplotlib.pyplot as plot
 
 oneCount = 0
 twoCount = 0
@@ -39,8 +41,14 @@ while True: #Main loop
         print("How many iterations should we run?")
         iterationCount = int(input())
         if iterationCount <= 0:
-            print("Cannot run 0 or less iterations, stopping.")
-            sys.exit() # Quit
+            print("Cannot run 0 or less iterations, generating chart.")
+            Number = ['1','2','3','4','5','6','7','8','9','10','11','12','13','14','15','16','17','18','19','20']
+            Totals = [oneCount,twoCount,threeCount,fourCount,fiveCount,sixCount,sevenCount,eightCount,nineCount,tenCount,elevenCount,twelveCount,thirteenCount,fourteenCount,fifteenCount,sixteenCount,seventeenCount,eighteenCount,nineteenCount,twentyCount]
+            plot.bar(Number,Totals)
+            plot.title('Number Spread for Generated Numbers')
+            plot.xlabel('Numbers')
+            plot.ylabel('Totals')
+            plot.show()
         elif iterationCount >= 0:
             while iterationCount >= 0:
                 randomNumber = random.randint(1,20)
@@ -85,7 +93,3 @@ while True: #Main loop
                     nineteenCount = nineteenCount + 1
                 elif randomNumber == 20:
                     twentyCount = twentyCount + 1
-
-
-
-    
