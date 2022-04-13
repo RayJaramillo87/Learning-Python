@@ -14,6 +14,9 @@ try:
     number = int(input())
 except ValueError:
     print('You must enter a whole Integer.')
-
+count = 0
 while number != 1:
     number = collatz(int(number))
+    count = count + 1
+
+print('Count: ' + str(count))
