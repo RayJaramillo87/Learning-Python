@@ -1,28 +1,9 @@
 import random,sys
 from tkinter import Y
+from xml.dom.minidom import Element
 import matplotlib.pyplot as plot
 
-oneCount = 0
-twoCount = 0
-threeCount = 0
-fourCount = 0
-fiveCount = 0
-sixCount = 0
-sevenCount = 0
-eightCount = 0
-nineCount = 0
-tenCount = 0
-elevenCount = 0
-twelveCount = 0
-thirteenCount = 0
-fourteenCount = 0
-fifteenCount = 0
-sixteenCount = 0
-seventeenCount = 0
-eighteenCount = 0 
-nineteenCount = 0
-twentyCount = 0
-
+randomSpread = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
 
 while True: #Main loop
     print("Hello, do you want to generate a random spread between 1-20, (y)es or (n)o?")
@@ -34,25 +15,25 @@ while True: #Main loop
             break # Break out of the player input loop.
     while True: #Iteration Loop
         print("Current Totals: ")
-        print("%s Ones  %s Twos %s Threes %s Fours %s Fives" % (oneCount, twoCount, threeCount, fourCount, fiveCount))
-        print("%s Sixes  %s Sevens %s Eightss %s Niness %s Tens" % (sixCount, sevenCount, eightCount, nineCount, tenCount))
-        print("%s Elevens  %s Twelves %s Thirteen %s Fourteen %s Fifteen" % (elevenCount, twelveCount, thirteenCount, fourteenCount, fifteenCount))
-        print("%s Sixteens  %s Seventeens %s Eighteens %s Nineteens %s Twenties" % (sixteenCount, seventeenCount, eighteenCount, nineteenCount, twentyCount))
+        print("%s Ones  %s Twos %s Threes %s Fours %s Fives" % (randomSpread[0], randomSpread[1], randomSpread[2], randomSpread[3], randomSpread[4]))
+        print("%s Sixes  %s Sevens %s Eightss %s Niness %s Tens" % (randomSpread[5], randomSpread[6], randomSpread[7], randomSpread[8], randomSpread[9]))
+        print("%s Elevens  %s Twelves %s Thirteen %s Fourteen %s Fifteen" % (randomSpread[10], randomSpread[11], randomSpread[12], randomSpread[13], randomSpread[14]))
+        print("%s Sixteens  %s Seventeens %s Eighteens %s Nineteens %s Twenties" % (randomSpread[15], randomSpread[16], randomSpread[17], randomSpread[18], randomSpread[19]))
         print("How many iterations should we run?")
         iterationCount = int(input())
         if iterationCount <= 0:
-            TotalIteration = (oneCount+twoCount+threeCount+fourCount+fiveCount+sixCount+sevenCount+eightCount\
-                +nineCount+tenCount+elevenCount+twelveCount+thirteenCount+fourteenCount+fifteenCount+sixteenCount\
-                    +seventeenCount+eighteenCount+nineteenCount+twentyCount)
+            TotalIteration = 0 
+            for i in range (0, len(randomSpread)):
+                TotalIteration = TotalIteration + randomSpread[i]    
             print("Cannot run 0 or less iterations, generating chart.")
             print("Total Iterations Ran: " + str(TotalIteration))
             Number = ['1','2','3','4','5','6','7','8','9','10','11','12','13','14','15','16','17','18','19','20']            
-            Totals = [float(oneCount/TotalIteration),float(twoCount/TotalIteration),float(threeCount/TotalIteration),float(fourCount/TotalIteration),\
-                float(fiveCount/TotalIteration),float(sixCount/TotalIteration),float(sevenCount/TotalIteration),float(eightCount/TotalIteration),\
-                    float(nineCount/TotalIteration),float(tenCount/TotalIteration),float(elevenCount/TotalIteration),float(twelveCount/TotalIteration),\
-                        float(thirteenCount/TotalIteration),float(fourteenCount/TotalIteration),float(fifteenCount/TotalIteration),\
-                            float(sixteenCount/TotalIteration),float(seventeenCount/TotalIteration),float(eighteenCount/TotalIteration),\
-                                float(nineteenCount/TotalIteration),float(twentyCount/TotalIteration)]
+            Totals = [float(randomSpread[0]/TotalIteration),float(randomSpread[1]/TotalIteration),float(randomSpread[2]/TotalIteration),float(randomSpread[3]/TotalIteration),\
+                float(randomSpread[4]/TotalIteration),float(randomSpread[5]/TotalIteration),float(randomSpread[6]/TotalIteration),float(randomSpread[7]/TotalIteration),\
+                    float(randomSpread[8]/TotalIteration),float(randomSpread[9]/TotalIteration),float(randomSpread[10]/TotalIteration),float(randomSpread[11]/TotalIteration),\
+                        float(randomSpread[12]/TotalIteration),float(randomSpread[13]/TotalIteration),float(randomSpread[14]/TotalIteration),\
+                            float(randomSpread[15]/TotalIteration),float(randomSpread[16]/TotalIteration),float(randomSpread[17]/TotalIteration),\
+                                float(randomSpread[18]/TotalIteration),float(randomSpread[19]/TotalIteration)]
             plot.bar(Number,Totals)
             plot.title('Number Spread for Generated Numbers')
             plot.xlabel('Numbers')
@@ -63,42 +44,42 @@ while True: #Main loop
                 randomNumber = random.randint(1,20)
                 iterationCount = iterationCount - 1
                 if randomNumber == 1:
-                    oneCount = oneCount + 1
+                    randomSpread[0] = randomSpread[0] + 1
                 elif randomNumber == 2:
-                    twoCount = twoCount + 1
+                    randomSpread[1] = randomSpread[1] + 1
                 elif randomNumber == 3:
-                    threeCount = threeCount + 1
+                    randomSpread[2] = randomSpread[2] + 1
                 elif randomNumber == 4:
-                    fourCount = fourCount + 1
+                    randomSpread[3] = randomSpread[3] + 1
                 elif randomNumber == 5:
-                    fiveCount = fiveCount + 1
+                    randomSpread[4] = randomSpread[4] + 1
                 elif randomNumber == 6:
-                    sixCount = sixCount + 1
+                    randomSpread[5] = randomSpread[5] + 1
                 elif randomNumber == 7:
-                    sevenCount = sevenCount + 1
+                    randomSpread[6] = randomSpread[6] + 1
                 elif randomNumber == 8:
-                    eightCount = eightCount + 1
+                    randomSpread[7] = randomSpread[7] + 1
                 elif randomNumber == 9:
-                    nineCount = nineCount + 1
+                    randomSpread[8] = randomSpread[8] + 1
                 elif randomNumber == 10:
-                    tenCount = tenCount + 1
+                    randomSpread[9] = randomSpread[9] + 1
                 elif randomNumber == 11:
-                    elevenCount = elevenCount + 1
+                    randomSpread[10] = randomSpread[10] + 1
                 elif randomNumber == 12:
-                    twelveCount = twelveCount + 1
+                    randomSpread[11] = randomSpread[11] + 1
                 elif randomNumber == 13:
-                    thirteenCount = thirteenCount + 1
+                    randomSpread[12] = randomSpread[12] + 1
                 elif randomNumber == 14:
-                    fourteenCount = fourteenCount + 1
+                    randomSpread[13] = randomSpread[13] + 1
                 elif randomNumber == 15:
-                    fifteenCount = fifteenCount + 1
+                    randomSpread[14] = randomSpread[14] + 1
                 elif randomNumber == 16:
-                    sixteenCount = sixteenCount + 1
+                    randomSpread[15] = randomSpread[15] + 1
                 elif randomNumber == 17:
-                    seventeenCount = seventeenCount + 1
+                    randomSpread[16] = randomSpread[16] + 1
                 elif randomNumber == 18:
-                    eighteenCount = eighteenCount + 1
+                    randomSpread[17] = randomSpread[17] + 1
                 elif randomNumber == 19:
-                    nineteenCount = nineteenCount + 1
+                    randomSpread[18] = randomSpread[18] + 1
                 elif randomNumber == 20:
-                    twentyCount = twentyCount + 1
+                    randomSpread[19] = randomSpread[19] + 1
